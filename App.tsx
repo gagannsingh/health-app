@@ -65,7 +65,7 @@ export default function App(){
           <Stack.Screen name='VerifyEmailScreen' component={VerifyEmailScreen} options={{title: "Email Verified"}}></Stack.Screen>
           <Stack.Screen name='PasswordChanged' component={PasswordChanged} options={{headerShown: false}}></Stack.Screen> 
 
-          {/* <Stack.Screen name="BtDeviceScreen" component={BtDeviceScreen} options={{title: "Home"}}></Stack.Screen> */}
+          <Stack.Screen name="BtDeviceScreen" component={BtDeviceScreen} options={{title: "Home"}}></Stack.Screen>
       </Stack.Navigator>
      </NavigationContainer>
     );

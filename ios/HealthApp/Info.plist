@@ -68,9 +68,18 @@
 	<string>Light</string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSHealthUpdateUsageDescription</key>
+	<!-- <key>NSHealthUpdateUsageDescription</key>
 	<string>We need access to your health data to read heart rate information.</string>
 	<key>NSHealthShareUsageDescription</key>
-	<string>We need access to your health data to read heart rate information.</string>
+	<string>We need access to your health data to read heart rate information.</string> -->
+
+
+	<key>NSHealthShareUsageDescription</key>
+	<string>Read and understand health data.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Share workout data with other apps.</string>
+	<!-- Below is only required if requesting clinical health data -->
+	<!-- <key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
+	<string>Read and understand clinical health data.</string> -->
 </dict>
 </plist>
