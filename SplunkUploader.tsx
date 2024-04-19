@@ -1,7 +1,11 @@
 
 //Jonathan 
-const UploadUri = "http://76.146.114.222:8088/services/collector";
-const SplunkToken = "72e64eef-38f1-45a4-8bf7-e037046a1b0b";
+// const UploadUri = "http://76.146.114.222:8088/services/collector";
+// const SplunkToken = "72e64eef-38f1-45a4-8bf7-e037046a1b0b";
+
+//Ethan
+const UploadUri = "http://localhost:8088/services/collector";
+const SplunkToken = "c4a9e85f-af6f-4a91-bb9b-79b888bcb70d";
 
 import { HttpClient } from "./HttpClient";
 

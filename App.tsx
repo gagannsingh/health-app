@@ -18,6 +18,8 @@ import OnboardThirdScreen from "./Screens/OnboardThirdScreen";
 import OnboardFourthScreen from "./Screens/OnboardFourthScreen";
 import HomepageScreen from "./Screens/HomepageScreen";
 import ProfileScreen from "./Screens/ProfileScreen";
+import BtDeviceScreen from './Screens/BtDeviceScreen';
+
 
 
 
@@ -62,6 +64,7 @@ export default function App(){
           <Stack.Screen name='EmailScreen' component={EmailScreen} options={{title: "Email Verification"}}></Stack.Screen>
           <Stack.Screen name='VerifyEmailScreen' component={VerifyEmailScreen} options={{title: "Email Verified"}}></Stack.Screen>
           <Stack.Screen name='PasswordChanged' component={PasswordChanged} options={{headerShown: false}}></Stack.Screen> 
+
           {/* <Stack.Screen name="BtDeviceScreen" component={BtDeviceScreen} options={{title: "Home"}}></Stack.Screen> */}
       </Stack.Navigator>
      </NavigationContainer>
