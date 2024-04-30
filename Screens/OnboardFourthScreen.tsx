@@ -1,10 +1,17 @@
 import React from "react";
-import {View, Image, SafeAreaView, StatusBar} from "react-native";
+import {
+  View,
+  Image,
+  SafeAreaView,
+  StatusBar,
+  Linking,
+  TouchableOpacity,
+} from "react-native";
 import { Button, Card, TextInput, Text } from "react-native-paper";
 import { CheckBox } from "react-native-elements";
-import {applicationTheme} from "./appTheme";
-import {useTogglePasswordVisibility} from "./pwVisibility";
-import {transparent} from "react-native-paper/lib/typescript/styles/themes/v2/colors";
+import { applicationTheme } from "./appTheme";
+import { useTogglePasswordVisibility } from "./pwVisibility";
+import { transparent } from "react-native-paper/lib/typescript/styles/themes/v2/colors";
 import CustomButton from "../Components/CustomButton";
 
 const OnboardFourthScreen = ({ navigation }: { navigation: any }) => {
@@ -19,6 +26,10 @@ const OnboardFourthScreen = ({ navigation }: { navigation: any }) => {
       alert("Please check the checkbox to continue.");
     }
   };
+  const handlePress = () => {
+    Linking.openURL("https://www.gekkocorporation.com/info");
+  };
+
   return (
     <SafeAreaView style={[applicationTheme.loginContent, { flex: 1 }]}>
       <StatusBar barStyle="dark-content" />
@@ -32,7 +43,7 @@ const OnboardFourthScreen = ({ navigation }: { navigation: any }) => {
                 fontFamily: "Rubik_700Bold",
                 fontSize: 32,
                 color: "#153D45",
-                paddingBottom: 84,
+                paddingBottom: 210,
               },
             ]}
           >
@@ -56,7 +67,9 @@ const OnboardFourthScreen = ({ navigation }: { navigation: any }) => {
             style={[
               applicationTheme.welcomeTextStyle,
               {
+                flex: 1,
                 paddingTop: 69,
+                paddingBottom: 70,
                 width: "80%",
                 fontFamily: "Inter_600SemiBold",
                 fontSize: 15,
@@ -68,14 +81,29 @@ const OnboardFourthScreen = ({ navigation }: { navigation: any }) => {
             mind.
           </Text>
         </View>
-        <View style={{ alignItems: "center", paddingTop: 60 }}>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            paddingTop: 230,
+            paddingBottom: 30,
+          }}
+        >
           <CheckBox
-            title="I understand that Mindscape is commited to securing my personal health information"
             checked={isChecked}
             onPress={handleCheckboxChange}
             checkedColor="#00FF00" // Color when checked
             uncheckedColor="#CCCCCC" // Color when unchecked
+            containerStyle={{ marginLeft: 40, marginRight: 2 }}
           />
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Text style={{ marginRight: 5 }}>I agree to</Text>
+            <TouchableOpacity onPress={handlePress}>
+              <Text style={{ textDecorationLine: "underline", color: "blue" }}>
+                terms and conditions
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
 
         <View
