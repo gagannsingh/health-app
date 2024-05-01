@@ -91,7 +91,7 @@ const OnboardThirdScreen = ({ navigation }: { navigation: any }) => {
             recommendations for your well-being.{" "}
           </Text>
         </View>
-        <View style={{ alignItems: "center", paddingTop: 30}}>
+        <View style={{ alignItems: "center", paddingTop: 30 }}>
           <CheckBox
             title="I agree to connect my Apple Health information to MindScape"
             checked={isChecked}
