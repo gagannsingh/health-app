@@ -1,17 +1,36 @@
 import React from "react";
-import { View, Image, SafeAreaView, StatusBar } from "react-native";
+import { View, Image, SafeAreaView, StatusBar, Alert } from "react-native";
 import { Button, Card, TextInput, Text } from "react-native-paper";
 import { CheckBox } from "react-native-elements";
 import { applicationTheme } from "./appTheme";
 import { useTogglePasswordVisibility } from "./pwVisibility";
 import { transparent } from "react-native-paper/lib/typescript/styles/themes/v2/colors";
 import CustomButton from "../Components/CustomButton";
+import HealthKit from '../HealthKit'; 
 
 const OnboardThirdScreen = ({ navigation }: { navigation: any }) => {
   const [isChecked, setIsChecked] = React.useState(false);
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
+  };
+
+  const connectToHealth = async () => {
+    if (!isChecked) {
+      Alert.alert("Please check the checkbox to continue.");
+      return;
+    }
+
+    try {
+      // Request permissions to read and write health data
+      await HealthKit.initialize();
+      const heartRateData = await HealthKit.getHeartRate();
+      console.log("Heart Rate Data:", heartRateData);
+      navigation.navigate("OnboardFourthScreen");
+    } catch (error) {
+      console.error("Error initializing HealthKit:", error);
+      Alert.alert("Error connecting to Apple Health. Please try again.");
+    }
   };
 
   const NextScreen = () => {
@@ -134,7 +153,9 @@ const OnboardThirdScreen = ({ navigation }: { navigation: any }) => {
             />
           </View>
 
-          <CustomButton onPress={NextScreen} text="Connect to Health" />
+          {/* <CustomButton onPress={NextScreen} text="Connect to Health" /> */}
+          <CustomButton onPress={connectToHealth} text="Connect to Health" />
+
         </View>
       </View>
     </SafeAreaView>

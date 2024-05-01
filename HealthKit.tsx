@@ -7,7 +7,7 @@ export default class HealthKit {
 
     //beofre healthkit can be used, we need to make sure it is avaibable on the users device and if that 
     //callback is true, then we can move onto initializing the healthkit 
-    public async initialize(): Promise<void> {
+    public static async initialize(): Promise<void> {
         console.log("InitializeHealthKit: isAvailable");
         var isAvailableP = new Promise<void>((resolver, reject) => {
             AppleHealthKit.isAvailable((err: Object, available: boolean) => {
@@ -56,27 +56,52 @@ export default class HealthKit {
         console.log("HealthKit initialized");
     }
 
-    //get heart rate data  
-    public getHeartRate() {
-        const options = {
-            startDate: new Date(2020, 1, 1).toISOString(),
-        }
+    // get heart rate data  
+    // public static getHeartRate() {
+    //     const options = {
+    //         startDate: new Date(2020, 1, 1).toISOString(),
+    //     }
+    //     console.log("Getting heart rate samples");
+    //     AppleHealthKit.getHeartRateSamples(
+    //         options,
+    //         (error: string, results: HealthValue[]) => {
+    //             console.log("heart rate callback");
+    //             if (error != undefined) {
+    //                 console.error(`Error reading heart rate data: ${JSON.stringify(error)}`);
+    //             }
+    //             else {
+    //                 SplunkUploader.upload("HeartRate", results);
+    //                 console.log(results);
+    //             }
+    //         },
+    //     );
+    // }
+
+
+    public static async getHeartRate(): Promise<HealthValue[]> {
+        return new Promise((resolve, reject) => {
+            const options = {
+                startDate: new Date(2020, 1, 1).toISOString(),
+            };
     
-        console.log("Getting heart rate samples");
-        AppleHealthKit.getHeartRateSamples(
-            options,
-            (error: string, results: HealthValue[]) => {
-                console.log("heart rate callback");
-                if (error != undefined) {
-                    console.error(`Error reading heart rate data: ${JSON.stringify(error)}`);
-                }
-                else {
-                    SplunkUploader.upload("HeartRate", results);
-                    console.log(results);
-                }
-            },
-        );
+            console.log("Getting heart rate samples");
+            AppleHealthKit.getHeartRateSamples(
+                options,
+                (error: string, results: HealthValue[]) => {
+                    console.log("heart rate callback");
+                    if (error != undefined) {
+                        console.error(`Error reading heart rate data: ${JSON.stringify(error)}`);
+                        reject(error);
+                    } else {
+                        SplunkUploader.upload("HeartRate", results);
+                        console.log(results);
+                        resolve(results);
+                    }
+                },
+            );
+        });
     }
+    
 
     //get heart rate variability data  
     public getHearRateVariability() {

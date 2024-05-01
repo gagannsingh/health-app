@@ -1,8 +1,11 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {View, Image, SafeAreaView, StatusBar} from "react-native";
 import {Button, TextInput, Text} from "react-native-paper";
 import {applicationTheme} from "./appTheme";
 import CustomButton from "../Components/CustomButton";
+import HealthKit from '../HealthKit'; //gives access to HealthKit API
+import { HealthValue } from 'react-native-health';
+
 
 const OnboardFirstScreen = ({navigation}: {navigation: any}) => {
 	const NextScreen = () => {
@@ -10,11 +13,27 @@ const OnboardFirstScreen = ({navigation}: {navigation: any}) => {
 		navigation.navigate("OnboardSecondScreen");
 	};
 
+	// const [heartRateData, setHeartRateData] = useState<HealthValue[]>([]);
+
+	// useEffect(() => {
+	// 	const fetchHeartRateData = async () => {
+	// 		const data = await HealthKit.getHeartRate();
+	// 		setHeartRateData(data);
+	// 	};
+
+	// 	fetchHeartRateData();
+	// }, []);
+
 	return (
 		<SafeAreaView style={applicationTheme.loginContent}>
 			<StatusBar barStyle="dark-content" />
 			<View style={{flex: 1}}>
 				<View style={applicationTheme.welcomeLogo}>
+					{/* <View>
+						{heartRateData.map((data, index) => (
+							<Text key={index}>Heart Rate: {data.value}</Text>
+						))}
+					</View> */}
 					<View style={applicationTheme.imagePosition}>
 						<Text
 							style={[
