@@ -4,8 +4,8 @@
 // const SplunkToken = "72e64eef-38f1-45a4-8bf7-e037046a1b0b";
 
 //Ethan
-const UploadUri = "http://localhost:8088/services/collector";
-const SplunkToken = "c4a9e85f-af6f-4a91-bb9b-79b888bcb70d";
+const UploadUri = "http://192.168.86.37:8088/services/collector";
+const SplunkToken = "a97e24d7-5d2f-4855-b648-e5ada36eb675";
 
 import { HttpClient } from "./HttpClient";
 
@@ -15,7 +15,7 @@ import { HttpClient } from "./HttpClient";
 
 class SplunkUploaderImpl {
     private nextRequestId = 1;
-    private nextEventId = 1;
+    // private nextEventId = 1;
     public async upload(source: string, data: any): Promise<void> {  
         if (data == undefined || data.length == undefined || data.length == 0) {
             return;
