@@ -9,6 +9,7 @@ import {
 import {Text, Button} from "react-native-paper";
 import {applicationTheme} from "./appTheme";
 import CustomButton from "../Components/CustomButton";
+import SignUpScreen from "./SignUpScreen";
 
 const HomepageScreen = ({navigation}: {navigation: any}) => {
 	const handleProfilePress = () => {
@@ -82,3 +83,8 @@ const HomepageScreen = ({navigation}: {navigation: any}) => {
 };
 
 export default HomepageScreen;
+
+
+
+
+

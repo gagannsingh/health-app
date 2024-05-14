@@ -35,6 +35,12 @@ export const applicationTheme = StyleSheet.create({
 		height: 40,
 		alignSelf: "center",
 	},
+	textInput: {
+    backgroundColor: "white",
+    padding: 10,
+    borderRadius: 5,
+    fontSize: 16,
+  },
 	signUpBtnStyle: {
 		margin: 0,
 	},
