@@ -303,6 +303,7 @@ import { useTogglePasswordVisibility } from "./pwVisibility";
 import CustomButton from "../Components/CustomButton";
 import { FIREBASE_AUTH } from "../FirebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import HomepageScreen from "./HomepageScreen";
 
 const SignUpScreen = ({ navigation }: { navigation: any }) => {
   const [firstName, setFirstName] = useState(""); // State for first name
@@ -403,12 +404,6 @@ const SignUpScreen = ({ navigation }: { navigation: any }) => {
 };
 
 export default SignUpScreen;
-
-
-
-
-
-
 
 
 
