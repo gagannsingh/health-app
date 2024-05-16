@@ -44,9 +44,9 @@ const LoginScreen = (props: LoginScreenProps) => {
       console.log("User signed in:", response.user);
       const loggedUser = response.user;
 
-      if (!loggedUser.emailVerified) {
-        alert("please verify your email before logging in.");
-      } else {
+      // if (!loggedUser.emailVerified) {
+      //   alert("please verify your email before logging in.");
+      // } else {
         //user is logged in and email is vertfied
         //check if user exists in firebase, if not, add them
         const userRef = doc(FIRESTORE_DB, "users", loggedUser.uid);
@@ -57,12 +57,12 @@ const LoginScreen = (props: LoginScreenProps) => {
             uid: loggedUser.uid,
             profileimage: null,
           });
-        }
+        // }
         //redirect after everying is done
         props.navigation.navigate("OnboardFirstScreen"); // Navigate on successful login
       }
     } catch (error: any) {
-      alert("There was a problem signing in. Please try again.");
+      alert(error.message);
     } finally {
       setIsLoading(false); // Clear loading indicator after sign-in attempt
     }
