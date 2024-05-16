@@ -2,7 +2,7 @@ import React from "react";
 import {Text, TextInput, Image, KeyboardTypeOptions} from "react-native";
 import {applicationTheme} from "../Screens/appTheme";
 
-const TextFields = ({ keyboardType, textName, marginBottom = 0, }: { keyboardType?: KeyboardTypeOptions; textName?: string; marginBottom?: number }) => {
+const TextFields = ({ keyboardType, textName, marginBottom = 0, }: { keyboardType?: KeyboardTypeOptions; textName?: string; marginBottom?: number; value?: string; onChangeText?: (text: string) => void;}) =>  {
 	return (
 		<>
 			<Text

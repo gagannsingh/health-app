@@ -19,6 +19,7 @@ import OnboardFourthScreen from "./Screens/OnboardFourthScreen";
 import HomepageScreen from "./Screens/HomepageScreen";
 import ProfileScreen from "./Screens/ProfileScreen";
 import BtDeviceScreen from './Screens/BtDeviceScreen';
+import { UserProvider } from "./UserContext";
 
 
 
@@ -38,35 +39,97 @@ export default function App(){
   if (!fontsLoaded) {
     return null;
   }
-    return (
-     <NavigationContainer>
-      <Stack.Navigator 
-        initialRouteName='BtDeviceScreen' 
-        screenOptions={{headerStyle: {backgroundColor: "rgb(193,251,252)"}, 
-        headerTintColor: "rgb(30,144,255)", 
-        headerTitleStyle: {fontWeight: "bold", 
-        fontSize: 25}}}>
-          <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} options={{headerShown: false}}></Stack.Screen>
-          <Stack.Screen name="SignInScreen" component={SignInScreen} options={{headerShown: false }}></Stack.Screen>
-          <Stack.Screen name='SignUpScreen' component={SignUpScreen} options={{headerShown: false}}></Stack.Screen>
-          <Stack.Screen name='OnboardFirstScreen' component={OnboardFirstScreen} options={{headerShown: false}}></Stack.Screen>
-          <Stack.Screen name='OnboardSecondScreen' component={OnboardSecondScreen} options={{headerShown: false}}></Stack.Screen>
-          <Stack.Screen name='OnboardThirdScreen' component={OnboardThirdScreen} options={{headerShown: false}}></Stack.Screen>
-          <Stack.Screen name='OnboardFourthScreen' component={OnboardFourthScreen} options={{headerShown: false}}></Stack.Screen>
-          <Stack.Screen name='HomepageScreen' component={HomepageScreen} options={{headerShown: false}}></Stack.Screen>
-          <Stack.Screen name='ProfileScreen' component={ProfileScreen} options={{headerShown: false}}></Stack.Screen>
+  return (
+    <UserProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="BtDeviceScreen"
+          screenOptions={{
+            headerStyle: { backgroundColor: "rgb(193,251,252)" },
+            headerTintColor: "rgb(30,144,255)",
+            headerTitleStyle: { fontWeight: "bold", fontSize: 25 },
+          }}
+        >
+          <Stack.Screen
+            name="WelcomeScreen"
+            component={WelcomeScreen}
+            options={{ headerShown: false }}
+          ></Stack.Screen>
+          <Stack.Screen
+            name="SignInScreen"
+            component={SignInScreen}
+            options={{ headerShown: false }}
+          ></Stack.Screen>
+          <Stack.Screen
+            name="SignUpScreen"
+            component={SignUpScreen}
+            options={{ headerShown: false }}
+          ></Stack.Screen>
+          <Stack.Screen
+            name="OnboardFirstScreen"
+            component={OnboardFirstScreen}
+            options={{ headerShown: false }}
+          ></Stack.Screen>
+          <Stack.Screen
+            name="OnboardSecondScreen"
+            component={OnboardSecondScreen}
+            options={{ headerShown: false }}
+          ></Stack.Screen>
+          <Stack.Screen
+            name="OnboardThirdScreen"
+            component={OnboardThirdScreen}
+            options={{ headerShown: false }}
+          ></Stack.Screen>
+          <Stack.Screen
+            name="OnboardFourthScreen"
+            component={OnboardFourthScreen}
+            options={{ headerShown: false }}
+          ></Stack.Screen>
+          <Stack.Screen
+            name="HomepageScreen"
+            component={HomepageScreen}
+            options={{ headerShown: false }}
+          ></Stack.Screen>
+          <Stack.Screen
+            name="ProfileScreen"
+            component={ProfileScreen}
+            options={{ headerShown: false }}
+          ></Stack.Screen>
 
-
-
-          <Stack.Screen name='PwResetScreen' component={PwResetScreen} options={{title: "Enter your e-mail"}}></Stack.Screen>
-          <Stack.Screen name='NewPwScreen' component={NewPwScreen} options={{title: "Enter a new password"}}></Stack.Screen>
-          <Stack.Screen name='HomeScreen' component={HomeScreen} options={{title: "Home"}}></Stack.Screen>
-          <Stack.Screen name='EmailScreen' component={EmailScreen} options={{title: "Email Verification"}}></Stack.Screen>
-          <Stack.Screen name='VerifyEmailScreen' component={VerifyEmailScreen} options={{title: "Email Verified"}}></Stack.Screen>
-          <Stack.Screen name='PasswordChanged' component={PasswordChanged} options={{headerShown: false}}></Stack.Screen> 
+          <Stack.Screen
+            name="PwResetScreen"
+            component={PwResetScreen}
+            options={{ title: "Enter your e-mail" }}
+          ></Stack.Screen>
+          <Stack.Screen
+            name="NewPwScreen"
+            component={NewPwScreen}
+            options={{ title: "Enter a new password" }}
+          ></Stack.Screen>
+          <Stack.Screen
+            name="HomeScreen"
+            component={HomeScreen}
+            options={{ title: "Home" }}
+          ></Stack.Screen>
+          <Stack.Screen
+            name="EmailScreen"
+            component={EmailScreen}
+            options={{ title: "Email Verification" }}
+          ></Stack.Screen>
+          <Stack.Screen
+            name="VerifyEmailScreen"
+            component={VerifyEmailScreen}
+            options={{ title: "Email Verified" }}
+          ></Stack.Screen>
+          <Stack.Screen
+            name="PasswordChanged"
+            component={PasswordChanged}
+            options={{ headerShown: false }}
+          ></Stack.Screen>
 
           {/* <Stack.Screen name="BtDeviceScreen" component={BtDeviceScreen} options={{title: "Home"}}></Stack.Screen> */}
-      </Stack.Navigator>
-     </NavigationContainer>
-    );
+        </Stack.Navigator>
+      </NavigationContainer>
+    </UserProvider>
+  );
    }
