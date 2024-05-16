@@ -33,7 +33,7 @@ const HomepageScreen = ({navigation}: {navigation: any}) => {
 						}}
 					>
 						Hello,{"\n"}
-						Ethan!
+						there!
 					</Text>
 					<TouchableOpacity
 						onPress={handleProfilePress}
