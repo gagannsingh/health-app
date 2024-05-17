@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   View,
   SafeAreaView,
@@ -8,7 +7,6 @@ import {
 } from "react-native";
 import { Text, TextInput } from "react-native-paper";
 import { applicationTheme } from "./appTheme";
-import { useTogglePasswordVisibility } from "./pwVisibility";
 import CustomButton from "../Components/CustomButton";
 import { FIREBASE_AUTH } from "../FirebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -19,8 +17,6 @@ const LoginScreen = (props: { navigation: { navigate: (arg0: string) => void; };
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const auth = FIREBASE_AUTH;
-  const { passwordVisibility, handlePasswordVisibility } =
-    useTogglePasswordVisibility();
 
   const handleSignInPress = async () => {
     setIsLoading(true);
@@ -74,7 +70,7 @@ const LoginScreen = (props: { navigation: { navigate: (arg0: string) => void; };
           placeholder="Password"
           onChangeText={(text) => setPassword(text)}
           value={password}
-          secureTextEntry={!passwordVisibility}
+          secureTextEntry={true}
           style={{ marginBottom: 56 }}
         />
 
@@ -90,18 +86,6 @@ const LoginScreen = (props: { navigation: { navigate: (arg0: string) => void; };
           <Text style={{ color: "red" }}>{error}</Text>
         )}
 
-        <Text
-          style={[
-            applicationTheme.welcomeTextStyle,
-            {
-              fontFamily: "Inter_600SemiBold",
-              fontSize: 14,
-              paddingTop: 20,
-            },
-          ]}
-        >
-          Forgot password?
-        </Text>
         <View style={applicationTheme.container}>
           <View style={applicationTheme.fotterTextAlign}>
             <Text style={applicationTheme.footerTextStyle}>New User? </Text>
