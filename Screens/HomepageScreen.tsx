@@ -73,7 +73,7 @@ const HomepageScreen = ({ navigation }: { navigation: any }) => {
               source={
                 profilePicture
                   ? { uri: profilePicture }
-                  : require("../assets/profile_photo.png")
+                  : require("../assets/default.png")
               }
               style={{
                 width: 63,

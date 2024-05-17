@@ -111,7 +111,7 @@ const ProfileScreen = ({ navigation }: { navigation: any }) => {
               source={
                 profilePicture
                   ? { uri: profilePicture }
-                  : require("../assets/profile_photo.png")
+                  : require("../assets/default.png")
               }
               style={{
                 width: 108,
@@ -136,8 +136,8 @@ const ProfileScreen = ({ navigation }: { navigation: any }) => {
             {user.name}
           </Text>
           <TextInput
-            style={{ marginTop: 10, fontSize: 18 }}
-            placeholder="Enter new name"
+            style={{ marginTop: 10, fontSize: 18, paddingBottom: 50}}
+            placeholder="Edit name"
             value={newName}
             onChangeText={setNewName}
           />

@@ -23,7 +23,7 @@ const OnboardFourthScreen = ({ navigation }: { navigation: any }) => {
     if (isChecked) {
       navigation.navigate("HomepageScreen");
     } else {
-      alert("Please check the checkbox to continue.");
+      alert("Please agree to our terms and conditions.");
     }
   };
   const handlePress = () => {
@@ -86,18 +86,18 @@ const OnboardFourthScreen = ({ navigation }: { navigation: any }) => {
             flexDirection: "row",
             alignItems: "center",
             paddingTop: 230,
-            paddingBottom: 30,
+            paddingBottom: 50,
           }}
         >
           <CheckBox
             checked={isChecked}
             onPress={handleCheckboxChange}
-            checkedColor="#00FF00" // Color when checked
+            checkedColor="#153D45" // Color when checked
             uncheckedColor="#CCCCCC" // Color when unchecked
             containerStyle={{ marginLeft: 40, marginRight: 2 }}
           />
           <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <Text style={{ marginRight: 5 }}>I agree to</Text>
+            <Text style={{ marginRight: 5 }}>I agree to the</Text>
             <TouchableOpacity onPress={handlePress}>
               <Text style={{ textDecorationLine: "underline", color: "blue" }}>
                 terms and conditions
