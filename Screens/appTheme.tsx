@@ -37,9 +37,13 @@ export const applicationTheme = StyleSheet.create({
   },
   textInput: {
     backgroundColor: "white",
-    padding: 10,
-    borderRadius: 5,
+    padding: 7,
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
+    borderBottomLeftRadius: 25,
+    borderBottomRightRadius: 25,
     fontSize: 16,
+    margin: 10,
   },
   signUpBtnStyle: {
     margin: 0,

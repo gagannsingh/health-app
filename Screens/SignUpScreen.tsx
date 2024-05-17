@@ -18,6 +18,7 @@ const SignUpScreen = ({ navigation }: { navigation: any }) => {
     useTogglePasswordVisibility();
   const auth = FIREBASE_AUTH;
   const { setUser } = useUser();
+  const [isFocused, setIsFocused] = useState(false);
 
   const handleSignUpPress = async () => {
     try {
@@ -59,13 +60,17 @@ const SignUpScreen = ({ navigation }: { navigation: any }) => {
           onChangeText={setFirstName}
           placeholder="First Name"
           style={applicationTheme.textInput}
+          underlineColor="transparent" // Set underline color to transparent
+          activeUnderlineColor="#153D45" // Color when focused
         />
         {/* Last name input */}
         <TextInput
           value={lastName}
           onChangeText={setLastName}
           placeholder="Last Name"
-          style={applicationTheme.textInput}
+          style={[applicationTheme.textInput, { borderBottomColor: "#153D45" }]}
+          underlineColor="transparent" // Set underline color to transparent
+          activeUnderlineColor="#153D45" // Color when focused
         />
         {/* Email input */}
         <TextInput
@@ -74,6 +79,8 @@ const SignUpScreen = ({ navigation }: { navigation: any }) => {
           keyboardType="email-address"
           placeholder="E-mail"
           style={applicationTheme.textInput}
+          underlineColor="transparent" // Set underline color to transparent
+          activeUnderlineColor="#153D45" // Color when focused
         />
         {/* Password input */}
         <TextInput
@@ -88,6 +95,8 @@ const SignUpScreen = ({ navigation }: { navigation: any }) => {
             />
           }
           style={applicationTheme.textInput}
+          underlineColor="transparent" // Set underline color to transparent
+          activeUnderlineColor="#153D45" // Color when focused
         />
         {/* Sign Up button */}
         <CustomButton onPress={handleSignUpPress} text="Sign Up" />

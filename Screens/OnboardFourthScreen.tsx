@@ -87,6 +87,7 @@ const OnboardFourthScreen = ({ navigation }: { navigation: any }) => {
             alignItems: "center",
             paddingTop: 230,
             paddingBottom: 50,
+            backgroundColor: "transparent",
           }}
         >
           <CheckBox
@@ -94,12 +95,30 @@ const OnboardFourthScreen = ({ navigation }: { navigation: any }) => {
             onPress={handleCheckboxChange}
             checkedColor="#153D45" // Color when checked
             uncheckedColor="#CCCCCC" // Color when unchecked
-            containerStyle={{ marginLeft: 40, marginRight: 2 }}
+            containerStyle={{
+              marginLeft: 40,
+              marginRight: 2,
+              backgroundColor: "transparent",
+            }}
           />
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <Text style={{ marginRight: 5 }}>I agree to the</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              backgroundColor: "transparent",
+            }}
+          >
+            <Text style={{ marginRight: 5, fontWeight: "bold" }}>
+              I agree to the
+            </Text>
             <TouchableOpacity onPress={handlePress}>
-              <Text style={{ textDecorationLine: "underline", color: "blue" }}>
+              <Text
+                style={{
+                  textDecorationLine: "underline",
+                  color: "blue",
+                  fontWeight: "bold",
+                }}
+              >
                 terms and conditions
               </Text>
             </TouchableOpacity>
