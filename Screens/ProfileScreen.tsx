@@ -152,12 +152,12 @@ const ProfileScreen = ({ navigation }: { navigation: any }) => {
         >
           {/* Add your text fields and buttons here */}
           <CustomButton onPress={handleChangeName} text="Save" />
-          <CustomButton
+          {/* <CustomButton
             onPress={handleCancelPress}
             text="Cancel"
             backgroundColor="#F2F8F6"
             textColor="#153D45"
-          />
+          /> */}
         </View>
         <View style={{ alignItems: "center", marginBottom: 20 }}>
           <TouchableOpacity onPress={handleLogoutPress}>

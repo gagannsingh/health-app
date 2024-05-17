@@ -111,7 +111,7 @@ const OnboardThirdScreen = ({navigation}: {navigation: any}) => {
             checkedColor="#153D45" // Color when checked
             uncheckedColor="#CCCCCC" // Color when unchecked
             containerStyle={styles.transparentBackground}
-            textStyle={styles.textStyle} // Optional: style the text if needed
+            textStyle={[styles.textStyle, { color: '#000' }]} // Changed font color to white
           />
         </View>
         <View
