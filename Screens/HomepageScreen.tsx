@@ -1,23 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
-	Image,
-	TouchableOpacity,
-	View,
-	ImageBackground,
-	StatusBar,
+  Image,
+  TouchableOpacity,
+  View,
+  ImageBackground,
+  StatusBar,
 } from "react-native";
-import { Text, Button } from "react-native-paper";
+import { Text } from "react-native-paper";
 import { useUser } from "../UserContext";
-import {applicationTheme} from "./appTheme";
-import CustomButton from "../Components/CustomButton";
-import SignUpScreen from "./SignUpScreen";
+import { applicationTheme } from "./appTheme";
+import ProfilePictureContext from "../PictureContext";
 
 const HomepageScreen = ({ navigation }: { navigation: any }) => {
-	const { user } = useUser();
-	const handleProfilePress = () => {
-		navigation.navigate("ProfileScreen");
-	};
-	return (
+  const { user } = useUser();
+  const { profilePicture } = useContext(ProfilePictureContext);
+
+  const handleProfilePress = () => {
+    navigation.navigate("ProfileScreen");
+  };
+
+  return (
     <ImageBackground
       source={require("../assets/homepage_background.png")}
       resizeMode="cover"
@@ -39,11 +41,16 @@ const HomepageScreen = ({ navigation }: { navigation: any }) => {
           </Text>
           <TouchableOpacity onPress={handleProfilePress} activeOpacity={1}>
             <Image
-              source={require("../assets/profile_photo.png")}
+              source={
+                profilePicture
+                  ? { uri: profilePicture }
+                  : require("../assets/profile_photo.png")
+              }
               style={{
                 width: 63,
                 height: 63,
-                resizeMode: "contain",
+                resizeMode: "cover",
+                borderRadius: 31.5, // Make the image circular
               }}
             />
           </TouchableOpacity>
@@ -82,13 +89,3 @@ const HomepageScreen = ({ navigation }: { navigation: any }) => {
 };
 
 export default HomepageScreen;
-
-
-
-
-
-
-
-
-
-

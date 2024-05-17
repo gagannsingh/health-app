@@ -3,11 +3,7 @@ PODS:
   - DoubleConversion (1.1.6)
   - EASClient (0.11.2):
     - ExpoModulesCore
-<<<<<<< HEAD
-  - EXConstants (15.4.5):
-=======
   - EXConstants (15.4.6):
->>>>>>> c594da83ea3f15beccb1cdf3a2ad601c12e0577e
     - ExpoModulesCore
   - EXFont (11.10.3):
     - ExpoModulesCore
@@ -16,19 +12,11 @@ PODS:
     - React-Core
   - EXJSONUtils (0.12.3)
   - EXLocation (16.5.5):
-<<<<<<< HEAD
-    - ExpoModulesCore
-  - EXManifests (0.13.2):
-    - ExpoModulesCore
-  - Expo (50.0.7):
-    - ExpoModulesCore
-=======
     - ExpoModulesCore
   - EXManifests (0.13.2):
     - ExpoModulesCore
   - Expo (50.0.18):
     - ExpoModulesCore
->>>>>>> c594da83ea3f15beccb1cdf3a2ad601c12e0577e
   - expo-dev-client (3.3.11):
     - EXManifests
     - expo-dev-launcher
@@ -96,11 +84,7 @@ PODS:
     - glog
     - RCT-Folly (= 2022.05.16.00)
     - React-Core
-<<<<<<< HEAD
-  - ExpoFileSystem (16.0.6):
-=======
   - ExpoFileSystem (16.0.9):
->>>>>>> c594da83ea3f15beccb1cdf3a2ad601c12e0577e
     - ExpoModulesCore
   - ExpoImagePicker (15.0.4):
     - ExpoModulesCore
@@ -1460,37 +1444,22 @@ SPEC CHECKSUMS:
   boost: d3f49c53809116a5d38da093a8aa78bf551aed09
   DoubleConversion: fea03f2699887d960129cc54bba7e52542b6f953
   EASClient: a42ee8bf36c93b3128352faf2ae49405ab4f80bd
-<<<<<<< HEAD
-  EXConstants: 988aa430ca0f76b43cd46b66e7fae3287f9cc2fc
-=======
   EXConstants: a5f6276e565d98f9eb4280f81241fc342d641590
->>>>>>> c594da83ea3f15beccb1cdf3a2ad601c12e0577e
   EXFont: f20669cb266ef48b004f1eb1f2b20db96cd1df9f
   EXImageLoader: ab589d67d6c5f2c33572afea9917304418566334
   EXJSONUtils: 5c42959e87be238b045ef37cc5268b16a6c0ad4a
   EXLocation: a631bd8dc4e7db986fb27edb7fc9ea8174ebe249
   EXManifests: 5e8c29f36c716af768a4ea47ec05e1b89ab93091
-<<<<<<< HEAD
-  Expo: 1cf3922a9b26262b2556544d4defcecccd37d033
-=======
   Expo: 09bd48f31bb7f1a3c97fd5a6cb28feae89cb4e40
->>>>>>> c594da83ea3f15beccb1cdf3a2ad601c12e0577e
   expo-dev-client: 29a32387346fe7b6d2a57918fae985bc48bfe9a2
   expo-dev-launcher: ba15a8e3933db2b977de6106f9083f53b3e1a0f2
   expo-dev-menu: 0e07e86ed397e431ee1171bb26caf7dc69cb494d
   expo-dev-menu-interface: 7ba029c9d1a82ac22b9b584c00514860b060553e
-<<<<<<< HEAD
-  ExpoFileSystem: a9273932e69a9a1e1a8d01b6ba895bb8294bbea2
-  ExpoKeepAwake: 0f5cad99603a3268e50af9a6eb8b76d0d9ac956c
-  ExpoModulesCore: 1391529545de72f7f64ecabc7adb912306ab4d34
-  EXSplashScreen: 39244885abfb1b12765aae89edb90f8c88db6bbd
-=======
   ExpoFileSystem: 74cc0fae916f9f044248433971dcfc8c3befd057
   ExpoImagePicker: f6d9da49201ce201645366afc6be12cef47f24d7
   ExpoKeepAwake: 0f5cad99603a3268e50af9a6eb8b76d0d9ac956c
   ExpoModulesCore: 4a8928a228569301ac4fc4a1e846713e05754d05
   EXSplashScreen: 5425c781a5fa3630cb51c12fef18ec05bfca869f
->>>>>>> c594da83ea3f15beccb1cdf3a2ad601c12e0577e
   EXStructuredHeaders: 5b0f47259db047dc1fdfa84752e292c2bfa68ecd
   EXUpdates: d4b3903c86709f0bce1f7111c3abdc83114e9870
   EXUpdatesInterface: 3e444e2093e25b7ca0999a7d8c16e8392dee70c3
@@ -1552,7 +1521,7 @@ SPEC CHECKSUMS:
   RNVectorIcons: d9fb2ffc051a345631473b99f36b3add2dd547d4
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
   sqlite3: f163dbbb7aa3339ad8fc622782c2d9d7b72f7e9c
-  Yoga: 1b901a6d6eeba4e8a2e8f308f708691cdb5db312
+  Yoga: 64cd2a583ead952b0315d5135bf39e053ae9be70
 
 PODFILE CHECKSUM: e5b46250df47f155f25b051294dad751218ce346
 

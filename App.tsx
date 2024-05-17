@@ -20,6 +20,7 @@ import HomepageScreen from "./Screens/HomepageScreen";
 import ProfileScreen from "./Screens/ProfileScreen";
 import BtDeviceScreen from './Screens/BtDeviceScreen';
 import { UserProvider } from "./UserContext";
+import { ProfilePictureProvider } from "./PictureContext";
 
 
 
@@ -41,6 +42,7 @@ export default function App(){
   }
   return (
     <UserProvider>
+      <ProfilePictureProvider>
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName="BtDeviceScreen"
@@ -130,6 +132,7 @@ export default function App(){
           {/* <Stack.Screen name="BtDeviceScreen" component={BtDeviceScreen} options={{title: "Home"}}></Stack.Screen> */}
         </Stack.Navigator>
       </NavigationContainer>
+      </ProfilePictureProvider>
     </UserProvider>
   );
    }

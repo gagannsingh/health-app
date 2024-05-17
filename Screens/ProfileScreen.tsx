@@ -1,25 +1,27 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import {
-  SafeAreaView,
   View,
   TouchableOpacity,
   StatusBar,
   Image,
   ScrollView,
+  Alert,
+  TextInput,
 } from "react-native";
-import { Text, Button, TextInput } from "react-native-paper";
+import { Text } from "react-native-paper";
 import { applicationTheme } from "./appTheme";
-import { useTogglePasswordVisibility } from "./pwVisibility";
 import CustomButton from "../Components/CustomButton";
-import TextFields from "../Components/TextFields";
 import Icon from "react-native-vector-icons/Ionicons"; // Import Ionicons
-import LoginScreen from "./SignInScreen";
 import { useUser } from "../UserContext";
+import ProfilePictureContext from "../PictureContext";
+import * as ImagePicker from "expo-image-picker";
 
 const ProfileScreen = ({ navigation }: { navigation: any }) => {
-  const { user } = useUser();
-  const { passwordVisibility, handlePasswordVisibility } =
-    useTogglePasswordVisibility();
+  const { user, setUser } = useUser();
+  const [newName, setNewName] = useState("");
+  const { profilePicture, setProfilePicture } = useContext(
+    ProfilePictureContext
+  );
 
   const handleSavePress = () => {
     // Handle button press logic here
@@ -33,8 +35,39 @@ const ProfileScreen = ({ navigation }: { navigation: any }) => {
 
   const handleLogoutPress = () => {
     // Handle logout logic here, e.g., clear user data, navigate to login screen
-     navigation.navigate("SignInScreen");
+    navigation.navigate("SignInScreen");
   };
+
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [1, 1],
+      quality: 1,
+    });
+
+    if (!result.canceled && result.assets && result.assets.length > 0) {
+      setProfilePicture(result.assets[0].uri);
+    }
+  };
+
+  const showImagePickerOptions = () => {
+    Alert.alert("Upload a Profile Photo", "Choose an option", [
+      {
+        text: "Cancel",
+        style: "cancel",
+      },
+      {
+        text: "Choose from Library",
+        onPress: pickImage,
+      },
+    ]);
+  };
+
+    const handleChangeName = () => {
+      setUser({ ...user, name: newName });
+      setNewName(""); // Clear input field after changing name
+    };
 
   return (
     <ScrollView>
@@ -52,7 +85,7 @@ const ProfileScreen = ({ navigation }: { navigation: any }) => {
         <View style={applicationTheme.ProfileHeader}>
           <TouchableOpacity
             onPress={() => navigation.goBack()}
-            style={{ marginLeft: -300 }}
+            style={{ marginLeft: -330 }}
           >
             <Icon name="chevron-back-outline" size={24} color="#153D45" />
           </TouchableOpacity>
@@ -73,14 +106,21 @@ const ProfileScreen = ({ navigation }: { navigation: any }) => {
             </Text>
           </View>
 
-          <Image
-            source={require("../assets/profile_photo.png")}
-            style={{
-              width: 108,
-              height: 108,
-              resizeMode: "contain",
-            }}
-          />
+          <TouchableOpacity onPress={showImagePickerOptions}>
+            <Image
+              source={
+                profilePicture
+                  ? { uri: profilePicture }
+                  : require("../assets/profile_photo.png")
+              }
+              style={{
+                width: 108,
+                height: 108,
+                resizeMode: "cover",
+                borderRadius: 54, // Make the image circular
+              }}
+            />
+          </TouchableOpacity>
           <Text
             style={[
               applicationTheme.welcomeTextStyle,
@@ -95,6 +135,12 @@ const ProfileScreen = ({ navigation }: { navigation: any }) => {
           >
             {user.name}
           </Text>
+          <TextInput
+            style={{ marginTop: 10, fontSize: 18 }}
+            placeholder="Enter new name"
+            value={newName}
+            onChangeText={setNewName}
+          />
         </View>
         <View
           style={[
@@ -104,11 +150,8 @@ const ProfileScreen = ({ navigation }: { navigation: any }) => {
             },
           ]}
         >
-          <TextFields textName="First Name" />
-          <TextFields textName="Last Name" />
-          <TextFields keyboardType="email-address" textName="E-mail" />
-          <TextFields textName="Password" marginBottom={56} />
-          <CustomButton onPress={handleSavePress} text="Save" />
+          {/* Add your text fields and buttons here */}
+          <CustomButton onPress={handleChangeName} text="Save" />
           <CustomButton
             onPress={handleCancelPress}
             text="Cancel"
@@ -127,5 +170,3 @@ const ProfileScreen = ({ navigation }: { navigation: any }) => {
 };
 
 export default ProfileScreen;
-
-
