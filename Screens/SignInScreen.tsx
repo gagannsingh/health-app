@@ -93,6 +93,8 @@ const LoginScreen = (props: LoginScreenProps) => {
           keyboardType="email-address"
           placeholder="E-mail"
           style={applicationTheme.textInput} // Apply the textInput style
+          underlineColor="transparent" // Set underline color to transparent
+          activeUnderlineColor="#153D45"
         />
         <TextInput
           value={password}
@@ -106,6 +108,8 @@ const LoginScreen = (props: LoginScreenProps) => {
             />
           } // Password visibility toggle
           style={applicationTheme.textInput}
+          underlineColor="transparent" // Set underline color to transparent
+          activeUnderlineColor="#153D45" // Color when focused
         />
 
         {isLoading ? (
@@ -142,18 +146,6 @@ const LoginScreen = (props: LoginScreenProps) => {
               <Text style={applicationTheme.signInTextStyle}>Sign Up</Text>
             </TouchableOpacity>
           </View>
-
-          {/* Go back button added here */}
-          <TouchableOpacity
-            onPress={() => props.navigation.goBack()}
-            style={{
-              padding: 12,
-              backgroundColor: "#f0f0f0",
-              borderRadius: 5,
-            }}
-          >
-            <Text style={{ fontSize: 14, color: "#000" }}>Go Back</Text>
-          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>
