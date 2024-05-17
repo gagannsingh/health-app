@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext , useState, useEffect} from "react";
 import {
   Image,
   TouchableOpacity,
   View,
   ImageBackground,
   StatusBar,
+  Linking,
+  Animated
 } from "react-native";
 import { Text } from "react-native-paper";
 import { useUser } from "../UserContext";
@@ -14,10 +16,37 @@ import ProfilePictureContext from "../PictureContext";
 const HomepageScreen = ({ navigation }: { navigation: any }) => {
   const { user } = useUser();
   const { profilePicture } = useContext(ProfilePictureContext);
+  const [animation] = useState(new Animated.Value(1));
+
 
   const handleProfilePress = () => {
     navigation.navigate("ProfileScreen");
   };
+
+  const handleCirclePress = () => {
+    Linking.openURL(
+      "http://192.168.86.41:8000/en-US/app/apple_health/mindscape_dashboard"
+    );
+  };
+
+  useEffect(() => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(animation, {
+          toValue: 1.2,
+          duration: 1000,
+          useNativeDriver: true,
+        }),
+        Animated.timing(animation, {
+          toValue: 1,
+          duration: 1000,
+          useNativeDriver: true,
+        }),
+      ]),
+      { iterations: -1 }
+    ).start();
+  }, []);
+
 
   return (
     <ImageBackground
@@ -69,19 +98,29 @@ const HomepageScreen = ({ navigation }: { navigation: any }) => {
                 fontFamily: "Inter_600SemiBold",
                 fontSize: 20,
                 color: "#F2F8F6",
-                paddingBottom: 27,
+                paddingBottom: 32,
               },
             ]}
           >
             Tap to view health
           </Text>
-          <View style={applicationTheme.circle}>
-            <Image
-              source={require("../assets/dark_green_logo.png")}
-              style={{ width: 113, height: 94 }}
-              resizeMode="contain"
-            />
-          </View>
+          <TouchableOpacity onPress={handleCirclePress} activeOpacity={1}>
+            <View style={applicationTheme.circle}>
+              <Animated.View
+                style={[
+                  applicationTheme.circle,
+                  applicationTheme.circle,
+                  { transform: [{ scale: animation }] },
+                ]}
+              >
+                <Image
+                  source={require("../assets/dark_green_logo.png")}
+                  style={{ width: 113, height: 94 }}
+                  resizeMode="contain"
+                />
+              </Animated.View>
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
     </ImageBackground>
